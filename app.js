@@ -20,11 +20,11 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use(cors());
-
+// Use cors() middleware with the appropriate origin setting to allow requests from your frontend
 app.use(
   cors({
     origin: "https://socail-media-front.vercel.app",
+    credentials: true, // Allow cookies to be sent in the request (important for authentication)
   })
 );
 //Importing routes
