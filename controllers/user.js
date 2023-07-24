@@ -31,11 +31,13 @@ exports.createUser = async (req, res) => {
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       httpOnly: true,
     };
+    console.log("before cookies set");
     res.status(201).cookie("token", token, options).json({
       success: true,
       user,
       token,
     });
+    console.log("after cookies set");
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -71,6 +73,8 @@ exports.login = async (req, res) => {
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       httpOnly: true,
     };
+    console.log("before cookies set");
+
     return res.status(200).cookie("token", token, options).json({
       success: true,
       user,
