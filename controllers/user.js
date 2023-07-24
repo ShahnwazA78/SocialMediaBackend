@@ -31,6 +31,7 @@ exports.createUser = async (req, res) => {
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       secure: true, // Set the secure flag to true for HTTPS-only cookies
+      domain: "localhost", // Set the domain to localhost
     };
     console.log("before cookies set");
     res.status(201).cookie("token", token, options).json({
@@ -73,6 +74,7 @@ exports.login = async (req, res) => {
     const options = {
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       httpOnly: true,
+      domain: "localhost", // Set the domain to localhost
       secure: true, // Set the secure flag to true for HTTPS-only cookies
     };
     console.log("before cookies set");
@@ -280,6 +282,7 @@ exports.deleteMyProfile = async (req, res) => {
       expires: new Date(Date.now()),
       httpOnly: true,
       secure: true, // Set the secure flag to true for HTTPS-only cookies
+      domain: "localhost", // Set the domain to localhost
     });
 
     //delete all posts of the user
