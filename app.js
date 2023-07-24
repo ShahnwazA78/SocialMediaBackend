@@ -18,13 +18,13 @@ app.use(
     extended: true,
   })
 );
-app.use(cors());
-
 app.use(cookieParser());
+
+app.use(cors());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://socail-media-front.vercel.app",
   })
 );
 //Importing routes
